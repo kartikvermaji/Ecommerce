@@ -31,7 +31,7 @@ const TopProducts = () => {
   />
         </div> )}
       {prod.map((product) => (
-        <div key={product._id} className={ `m-1 border-2 border-black p-2 items-center lg:p-4 rounded-2xl bg-slate-200 ${product===prod[4]?"hidden lg:block":"block"}`}>
+        <div key={product._id} className={ `m-1 border-2 border-black p-2 items-center lg:p-1 rounded-2xl bg-slate-200 ${product===prod[4]?"hidden lg:block":"block"}`}>
           <ProductCard product={product} />
         </div>
       ))}</div>
