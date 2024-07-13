@@ -19,7 +19,7 @@ const UpdateProduct = () => {
   const [categories, setCategories] = useState([]);
 
   const getProduct = async () => {
-    const response = await axios.get(`http://localhost:3001/product/${id}`);
+    const response = await axios.get(`https://ecommerce-server-dml7.onrender.com/product/${id}`);
     setProduct(response.data.product);
   };
   const uploadFileHandler = async (e) => {
@@ -38,7 +38,7 @@ const UpdateProduct = () => {
     e.preventDefault();
     try {
       const result = await axios.put(
-        `http://localhost:3001/product/${id}`,
+        `https://ecommerce-server-dml7.onrender.com/product/${id}`,
         {
           name: name,
           description: description,
@@ -66,7 +66,7 @@ const UpdateProduct = () => {
       );
       if (!answer) return;
       const result = await axios.delete(
-        `http://localhost:3001/product/${id}`,
+        `https://ecommerce-server-dml7.onrender.com/product/${id}`,
         {
           headers: { authorization: token, ADMIN: us.isAdmin },
         }
@@ -80,7 +80,7 @@ const UpdateProduct = () => {
   }
 
   const getCategories = async () => {
-    const res = await axios.get("http://localhost:3001/category/categories");
+    const res = await axios.get("https://ecommerce-server-dml7.onrender.com/category/categories");
     setCategories(res.data);
   };
   useEffect(() => {

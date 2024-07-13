@@ -8,7 +8,7 @@ const AllProduct = () => {
 
     const getAllProducts = async () => {
         try {
-          const res = await axios.get("http://localhost:3001/product/allProducts");
+          const res = await axios.get("https://ecommerce-server-dml7.onrender.com/product/allProducts");
           setAllProduct(res.data.products);
         } catch (error) {
           console.error("Error fetching filtered products:", error);

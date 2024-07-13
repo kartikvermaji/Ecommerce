@@ -20,7 +20,7 @@ const PlaceOrder = () => {
 
   const placeOrderHandler = async () => {
     try {
-      const res = await axios.post("http://localhost:3001/order", {
+      const res = await axios.post("https://ecommerce-server-dml7.onrender.com/order", {
         userId: user._id,
         orderItems: orderItems,
         paymentMethod: "paypal",

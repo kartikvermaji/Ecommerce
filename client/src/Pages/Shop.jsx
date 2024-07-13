@@ -17,7 +17,7 @@ const Shop = () => {
 
   const getAllProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:3001/product/allProducts");
+      const res = await axios.get("https://ecommerce-server-dml7.onrender.com/product/allProducts");
       
       // setFilteredProducts(res.data.products);
       // dispatch(setProducts(filteredProducts));
@@ -28,7 +28,7 @@ const Shop = () => {
     }
   };
   const getCategories = async () => {
-    const res = await axios.get("http://localhost:3001/category/categories");
+    const res = await axios.get("https://ecommerce-server-dml7.onrender.com/category/categories");
   
     dispatch(setCategories(res.data));
   };
@@ -41,7 +41,7 @@ const Shop = () => {
   };
 
   const getfilterproducts = async () => {
-    const response = await axios.post(`http://localhost:3001/product//filterss`,{
+    const response = await axios.post(`https://ecommerce-server-dml7.onrender.com/product//filterss`,{
       checked:checked,
     
     });
