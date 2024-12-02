@@ -76,10 +76,14 @@ const Navbar = () => {
 
       {
         open && <div className="bg-sky-500 space-y-5 font-thin text-base text-white px-2 pl-4  text-left h-[100em] right-0  fixed z-999 top-20 flex flex-col ">
-          <a href="/home" className="pt-4">Home</a>
-          <a href="/fav">Favourites</a>
+          {/* <a href="/home" className="pt-4">Home</a> */}
+          <Link to="/home" className="pt-4">Home</Link>
+          <Link to="/fav">Favourites</Link>
+          <Link to="/cart">Cart</Link>
+          <Link to="/shop">Shop</Link>
+          {/* <a href="/fav">Favourites</a>
           <a href="cart">Cart</a>
-          <a href="/shop">Shop</a>
+          <a href="/shop">Shop</a> */}
           <p> <FontAwesomeIcon icon={faXmark} onClick={()=>{setopen(false)}} className="border-2 p-2 px-3 hover:ng-slate-50  rounded-full" /></p>
           
         </div>
