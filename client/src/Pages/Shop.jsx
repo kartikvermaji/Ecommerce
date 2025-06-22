@@ -18,7 +18,7 @@ const Shop = () => {
 
   const getAllProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/product/allProducts");
+      const res = await axios.get("https://ecommerce-server-dml7.onrender.com/product/allProducts");
       
       // setFilteredProducts(res.data.products);
       // dispatch(setProducts(filteredProducts));
@@ -29,7 +29,7 @@ const Shop = () => {
     }
   };
   const getCategories = async () => {
-    const res = await axios.get("http://localhost:3000/category/categories");
+    const res = await axios.get("https://ecommerce-server-dml7.onrender.com/category/categories");
   
     dispatch(setCategories(res.data));
   };
@@ -42,7 +42,7 @@ const Shop = () => {
   };
 
   const getfilterproducts = async () => {
-    const response = await axios.post(`http://localhost:3000/product//filterss`,{
+    const response = await axios.post(`https://ecommerce-server-dml7.onrender.com/product//filterss`,{
       checked:checked,
     
     });
@@ -68,7 +68,7 @@ const Shop = () => {
   formData.append("file", file);
 
   try {
-    const res = await axios.post("http://localhost:3000/predict", formData, {
+    const res = await axios.post("https://ecommerce-server-dml7.onrender.com/predict", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },

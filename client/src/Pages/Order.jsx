@@ -16,21 +16,21 @@ const Order = () => {
   const { id } = useParams();
 
   const getPayOrder = async () => {
-    const res = await axios.put(`http://localhost:3000/order/${id}/pay`, {
+    const res = await axios.put(`https://ecommerce-server-dml7.onrender.com/order/${id}/pay`, {
       headers: { authorization: token},
     });
     setPayOrder(res.data)
     
   };
   const getDeliverOrder = async () => {
-    const res = await axios.put(`http://localhost:3000/order/${id}/deliver`, {
+    const res = await axios.put(`https://ecommerce-server-dml7.onrender.com/order/${id}/deliver`, {
       headers: { authorization: token},
     });
    setDeliverOrder(res.data)
   };
 
   const getOrders = async () => {
-    const res = await axios.get(`http://localhost:3000/order/${id}`);
+    const res = await axios.get(`https://ecommerce-server-dml7.onrender.com/order/${id}`);
     setOrder(res.data);
   };
   useEffect(()=>{

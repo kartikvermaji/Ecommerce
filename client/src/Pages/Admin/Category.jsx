@@ -24,7 +24,7 @@ const Category = () => {
   const handleSubmit=async(e)=>{
     e.preventDefault()
    try{
-    const result = await axios.post("http://localhost:3000/category/",{
+    const result = await axios.post("https://ecommerce-server-dml7.onrender.com/category/",{
         name:name
     },
     {
@@ -40,7 +40,7 @@ const Category = () => {
   const handleUpdate=async(e)=>{
     e.preventDefault()
    try{
-    const result = await axios.put(`http://localhost:3000/category/${selectedCategory._id}`,{
+    const result = await axios.put(`https://ecommerce-server-dml7.onrender.com/category/${selectedCategory._id}`,{
         name:updatingName
     },
     {
@@ -61,7 +61,7 @@ const Category = () => {
   const handleDelete=async(e)=>{
     e.preventDefault()
    try{
-    const result = await axios.delete(`http://localhost:3000/category/${selectedCategory._id}`,
+    const result = await axios.delete(`https://ecommerce-server-dml7.onrender.com/category/${selectedCategory._id}`,
        {
         headers: { authorization: token ,ADMIN:us.isAdmin},
       });
@@ -77,7 +77,7 @@ const Category = () => {
 
   }
   const getCategories = async () => {
-    const res = await axios.get("http://localhost:3000/category/categories");
+    const res = await axios.get("https://ecommerce-server-dml7.onrender.com/category/categories");
   
     setCategories(res.data);
   };

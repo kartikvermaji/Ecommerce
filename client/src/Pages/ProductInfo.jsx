@@ -32,7 +32,7 @@ const ProductInfo = () => {
 
   const getAllProducts = async () => {
     try {
-      const res = await axios.get("http://localhost:3000/product/allProducts");
+      const res = await axios.get("https://ecommerce-server-dml7.onrender.com/product/allProducts");
       dispatch(setProducts(res.data.products));
       // setProductsByCategories(filteredProducts)
     } catch (error) {
@@ -41,7 +41,7 @@ const ProductInfo = () => {
     }
   };
   const getProduct = async () => {
-    const response = await axios.get(`http://localhost:3000/product/${id}`);
+    const response = await axios.get(`https://ecommerce-server-dml7.onrender.com/product/${id}`);
     setItem(response.data.product);
   };
 
@@ -49,7 +49,7 @@ const ProductInfo = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        `http://localhost:3000/product/${id}/reviews`,
+        `https://ecommerce-server-dml7.onrender.com/product/${id}/reviews`,
         {
           rating: rate,
           comment: comment,

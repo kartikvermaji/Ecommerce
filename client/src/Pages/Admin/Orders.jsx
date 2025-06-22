@@ -11,7 +11,7 @@ const Orders = () => {
     const [orders,setOrders]=useState([])
     const getAllOrders = async () => {
         try {
-          const res = await axios.get("http://localhost:3000/order",{
+          const res = await axios.get("https://ecommerce-server-dml7.onrender.com/order",{
             headers: { authorization: token ,ADMIN:us.isAdmin},
           });
         setOrders(res.data);

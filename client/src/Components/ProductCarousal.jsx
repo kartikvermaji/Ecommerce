@@ -12,7 +12,7 @@ const ProductCarousal = () => {
     const [prod, setProducts] = useState([]);
 
     const getProducs = async () => {
-      const response = await axios.get("http://localhost:3000/product/new");
+      const response = await axios.get("https://ecommerce-server-dml7.onrender.com/product/new");
       setProducts(response.data.products);
     };
   

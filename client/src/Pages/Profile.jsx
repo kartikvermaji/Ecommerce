@@ -11,7 +11,7 @@ const Profile = () => {
   const [order, setOrder] = useState([]);
 
   const getuserOrder = async () => {
-    const res = await axios.get(`http://localhost:3000/order/mine/${user._id}`);
+    const res = await axios.get(`https://ecommerce-server-dml7.onrender.com/order/mine/${user._id}`);
     setOrder(res.data);
   };
   useEffect(()=>{

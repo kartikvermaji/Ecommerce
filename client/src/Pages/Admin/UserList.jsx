@@ -16,7 +16,7 @@ const UserList = () => {
     const us=useSelector((state)=>state.user)
     const[users,setUsers]=useState([])
     const getAllUsers = async () => {
-        const response = await axios.get("http://localhost:3000/user/",{
+        const response = await axios.get("https://ecommerce-server-dml7.onrender.com/user/",{
             headers: { authorization: token ,ADMIN:us.isAdmin},
           });
           setUsers(response.data.users)
@@ -25,7 +25,7 @@ const UserList = () => {
       const deleteHandler = async (id) => {
         if (window.confirm("You are going to Delete a user?")) {
           try {
-            const response = await axios.delete(`http://localhost:3000/user/${id}`,{
+            const response = await axios.delete(`https://ecommerce-server-dml7.onrender.com/user/${id}`,{
                 headers: { authorization: token ,ADMIN:us.isAdmin},
               });
               enqueueSnackbar("User is removed!",{variant:"success"})
