@@ -17,14 +17,14 @@ const Shop = () => {
   const [productsByFilter, setProductsByFilter] = useState(products);
 
   const getCategories = async () => {
-    const res = await axios.get("https://ecommerce-server-dml7.onrender.com/category/categories");
+    const res = await axios.get("http://localhost:3000/category/categories");
   
     dispatch(setCategories(res.data));
   };
 
   const getAllProducts = async () => {
     try {
-      const res = await axios.get("https://ecommerce-server-dml7.onrender.com/product/allProducts");
+      const res = await axios.get("http://localhost:3000/product/allProducts");
       setFilteredProducts(res.data.products);
       dispatch(setProducts(filteredProducts));
       // setProductsByCategories(filteredProducts)

@@ -37,7 +37,7 @@ const NewProduct = () => {
   const handleSubmit=async(e)=>{
     e.preventDefault()
    try{
-    const result = await axios.post("https://ecommerce-server-dml7.onrender.com/product/",{
+    const result = await axios.post("http://localhost:3000/product/",{
       name:name,
       description:description
       ,price:price
@@ -58,7 +58,7 @@ const NewProduct = () => {
   }
 
   const getCategories = async () => {
-    const res = await axios.get("https://ecommerce-server-dml7.onrender.com/category/categories");
+    const res = await axios.get("http://localhost:3000/category/categories");
     setCategories(res.data);
   };
   useEffect(() => {

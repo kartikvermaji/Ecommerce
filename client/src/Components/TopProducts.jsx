@@ -7,7 +7,7 @@ const TopProducts = () => {
   const [prod, setProducts] = useState([]);
 
   const getProducs = async () => {
-    const response = await axios.get("https://ecommerce-server-dml7.onrender.com/product/top");
+    const response = await axios.get("http://localhost:3000/product/top");
     setProducts(response.data.products);
   };
   useEffect(() => {

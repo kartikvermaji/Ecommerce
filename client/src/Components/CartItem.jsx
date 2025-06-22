@@ -24,7 +24,7 @@ const CartItem = ({ product }) => {
             <img
               src={obj.image}
               alt={product.item.name}
-              className="lg:h-32 md:h-24  h-16 lg:w-36 rounded-2xl object-cover hover:shadow-2xl hover:shadow-slate-500 hover:border-2"
+              className="lg:h-32 md:h-24  h-16 lg:w-36 rounded-2xl object-contain hover:shadow-2xl hover:shadow-slate-500 hover:border-2"
             />
             <div className="lg:space-y-1 space-y-0">
               <p className="lg:text-2xl text-sm font-light md:w-[20vw]">{product.item.name}</p>

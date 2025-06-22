@@ -28,7 +28,7 @@ const ProductCard = ({ product }) => {
     <div>
       <div className="lg:pb-2 pb-1 rounded-3xl w-[38vw] md:w-[20vw] lg:w-auto   ">
         <div className="flex flex-col items-center">
-          <img src={product.image} alt={product.name} className="lg:h-[12em] h-[8rem] w-[8rem] lg:w-[13em]  object-cover  rounded-xl shadow-lg hover:shadow-slate-300"  onClick={()=>{navigate(`/product/${product._id}/`)}} />
+          <img src={product.image} alt={product.name} className="lg:h-[12em] h-[8rem] w-[8rem] lg:w-[13em]  object-contain  rounded-xl shadow-lg hover:shadow-slate-300"  onClick={()=>{navigate(`/product/${product._id}/`)}} />
           <div className="flex flex-col justify-around">
           <p className="text-sm md:text-lg lg:text-2xl font-light mt-2 text-black">{product && product.name.substring(0,16)}</p>
 

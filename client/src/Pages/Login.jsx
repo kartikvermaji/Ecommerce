@@ -51,7 +51,7 @@ const SignUp = ({handleclick}) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://ecommerce-server-dml7.onrender.com/auth/register",
+        "http://localhost:3000/auth/register",
         formData
       );
       enqueueSnackbar("User Registered Successfully!",{variant:"success"})
@@ -126,7 +126,7 @@ const SiginIn = ({handleclick}) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://ecommerce-server-dml7.onrender.com/auth/login",
+        "http://localhost:3000/auth/login",
         formData
       );
       dispatch(

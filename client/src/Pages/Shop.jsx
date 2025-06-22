@@ -5,6 +5,7 @@ import Navbar from '../Components/Navbar'
 import { setCategories, setProducts } from "../state/state";
 import axios from "axios";
 import ProductCard from "../Components/ProductCard";
+import img1 from "../assets/upload.png"
 
 
 const Shop = () => {
@@ -17,7 +18,7 @@ const Shop = () => {
 
   const getAllProducts = async () => {
     try {
-      const res = await axios.get("https://ecommerce-server-dml7.onrender.com/product/allProducts");
+      const res = await axios.get("http://localhost:3000/product/allProducts");
       
       // setFilteredProducts(res.data.products);
       // dispatch(setProducts(filteredProducts));
@@ -28,7 +29,7 @@ const Shop = () => {
     }
   };
   const getCategories = async () => {
-    const res = await axios.get("https://ecommerce-server-dml7.onrender.com/category/categories");
+    const res = await axios.get("http://localhost:3000/category/categories");
   
     dispatch(setCategories(res.data));
   };
@@ -41,7 +42,7 @@ const Shop = () => {
   };
 
   const getfilterproducts = async () => {
-    const response = await axios.post(`https://ecommerce-server-dml7.onrender.com/product//filterss`,{
+    const response = await axios.post(`http://localhost:3000/product//filterss`,{
       checked:checked,
     
     });
@@ -59,7 +60,33 @@ const Shop = () => {
   //   getAllProducts()
   // }
  
-  
+  const handleImageUpload = async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  const formData = new FormData();
+  formData.append("file", file);
+
+  try {
+    const res = await axios.post("http://localhost:3000/predict", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+
+    const predictedCategory = res.data.predicted_class;
+    const matchedCategory = categories.find((c) => c.name === predictedCategory);
+
+    if (matchedCategory) {
+      setChecked([matchedCategory._id]); 
+    } else {
+      alert("No matching category found.");
+    }
+  } catch (err) {
+    console.error("Prediction error", err);
+  }
+};
+
   
 
 
@@ -72,6 +99,22 @@ const Shop = () => {
       <h2 className="text-[12px] text-center px-1 md:px-2 md:py-2  bg-slate-100 text-black rounded-md lg:rounded-full mb-2">
               Filter by Categories
     </h2>
+    <div className="mt-4">
+  <button
+    onClick={() => document.getElementById('imageInput').click()}
+    className="bg-slate-50 rounded-2xl w-[16vw] flex items-center hover:bg-slate-200 text-white font-bold py-2 px-4 rounded"
+  >
+    <img src={img1} alt="" className=" h-12 pl-20 rounded-2xl" />
+  </button>
+  <input
+    type="file"
+    id="imageInput"
+    accept="image/*"
+    onChange={handleImageUpload}
+    className="hidden"
+  />
+</div>
+
     <div className="lg:p-5 w-[7rem]   lg:w-[15rem]  ">
               {categories?.map((c) => (
                 <div key={c._id} className="mb-2">
@@ -101,11 +144,6 @@ const Shop = () => {
             </div>
           ))}
       </div>
-
-    
-
-      
-    
 
     </div>
     </div>

@@ -36,10 +36,14 @@ export const Register = async (req, res) => {
 export const Login=async(req,res)=>{
     try{
         const{username,password}=req.body;
+        console.log(username)
+        console.log(password)
         const user=await USERS.findOne({username:username});
         if(!user){return res.status(404).json({message:"User Not Found"})}
+        console.log(user.password)
 
-        const match = user.password === password;
+        const match = user.password == password;
+        console.log(match)
         if(!match){ return res.status(400).json({ msg: "Invalid credentials." })}
 
         const token=jwt.sign({id:user._id,isAdmin:user.isAdmin},process.env.JWT_SECRET);

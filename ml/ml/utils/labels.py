@@ -1,0 +1,1 @@
+categories = ['Earbuds', 'Headphones', 'Keyboard', 'Laptop', 'Phone', 'Smart Watch']

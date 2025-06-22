@@ -12,7 +12,7 @@ const ProductCarousal = () => {
     const [prod, setProducts] = useState([]);
 
     const getProducs = async () => {
-      const response = await axios.get("https://ecommerce-server-dml7.onrender.com/product/new");
+      const response = await axios.get("http://localhost:3000/product/new");
       setProducts(response.data.products);
     };
   
@@ -56,7 +56,7 @@ const ProductCarousal = () => {
       {
         prod && prod[i] && (
         <div className="flex flex-col md:flex-row justify-center w-[80vw]  md:w-[80vw] lg:space-x-32 md:space-x-4 bg-white p-5 md:p-10 rounded-2xl">
-            <Link to={`/product/${prod[i]._id}`}><img src={prod[i].image} alt="" className=" border-2 border-black lg:h-[21rem] h-[11rem] md:h-[22rem] md:w-[19rem] w-[14rem] lg:w-[25rem] rounded-xl  bg-white hover:shadow-xl hover:shadow-slate-400 duration-200 object-cover" /></Link> 
+            <Link to={`/product/${prod[i]._id}`}><img src={prod[i].image} alt="" className=" border-2 border-black lg:h-[21rem] h-[11rem] md:h-[22rem] md:w-[19rem] w-[14rem] lg:w-[25rem] rounded-xl  bg-white hover:shadow-xl hover:shadow-slate-400 duration-200 object-contain" /></Link> 
             <div className="lg:w-[20vw] md:min-h-[61vh] md:w-[40vw] w-[60vw] duration-200">
                 <p className="md:text-3xl text-xl font-light text-black m-2 border-b-2 pb-2  border-black">{prod[i].name.substring(0,30)}</p>
                 <p className="md:text-2xl font-semibold text-black m-2">₹{prod[i].price}</p>

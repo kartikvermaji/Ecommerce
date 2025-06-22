@@ -17,6 +17,7 @@ import productRoute from "./Routes/productRoute.js"
 import categoryRoute from "./Routes/categoryRoute.js"
 import orderRoute from "./Routes/orderRoute.js"
 import uploadRoute from "./Routes/uploadRoute.js"
+import predictRoute from "./Routes/predictRoute.js"
 import path from "path";
 
 //Setting Up Routes
@@ -26,11 +27,12 @@ app.use("/product",productRoute);
 app.use("/category",categoryRoute);
 app.use("/order",orderRoute);
 app.use("/upload",uploadRoute)
+app.use("/predict",predictRoute)
 
 const __dirname=path.resolve();
 app.use("/uploads",express.static(path.join(__dirname+"/uploads")))
   
-//MONGOOOSE
+//MONGOOOSE 
 const url = process.env.MONGO_URL;
 mongoose
   .connect(url)
